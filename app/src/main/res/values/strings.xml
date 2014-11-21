@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tall Pines Rally</string>
+    <string name="section_info_title">Information</string>
+    <string name="section_info_details">"Based in Bancroft Ontario, 2 hours from Toronto, the Rally of the Tall Pines is a favourite event with competitors and fans alike. Taking place in late November, the rally always dishes out challenging conditions for the drivers.\n
+Dirt, snow and ice routinely mix together on the roads to provide a supreme test of driving skill. As the final event of the Canadian Rally Championship, the Rally of the Tall Pines also features tight year-end battles which make for hard driving and great spectating.\n
+Thanks to the efforts of Maple Leaf Rally Club\'s experienced and dedicated organizing team, this event is well-known as one of the best-run rallies in North America. It always runs like clockwork, with a thorough and professional approach to every aspect of the event. A strong field of over 50 teams from Canada and the USA are expected to compete in the rally this year."</string>
+    <string name="section_teams_title">Entry List</string>
+    <string name="section_news_title">News</string>
+    <string name="section_schedule_title">Schedule</string>
+    <string name="section_locations_title">Locations</string>
+    <string name="section_results_title">Results</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="team_photo">Team Photo</string>
+
+    <string-array name="locationsArray">
+        <item>Rally Headquarters &amp; Service Area</item>
+        <item>Iron Bridge Spectator Area</item>
+        <item>Golton Super Special Spectator Area</item>
+        <item>Town of Bancroft</item>
+    </string-array>
+    <string-array name="locationDetailsArray">
+        <item>"Enjoy a \"behind-the-scenes\" view into the cars and service crews.  As well as the Ceremonial start and finish of the event."</item>
+        <item>"The classic and popular Iron Bridge area never fails to entertain!"</item>
+        <item>"Superb viewing of the cars in action at this Super Special night stage!"</item>
+        <item>"Visit the charming town of Bancroft, just minutes away, and enjoy the hospitality and shopping! You might want to get a warm meal before the evening stages."</item>
+    </string-array>
+    <string-array name="locationDetailsLongArray">
+        <item>"Our single Service Area gives the teams a chance to work on the rally cars. This is a great opportunity to see the massive effort required to get the cars ready for the next set of special stages. Rally Headquarters (HQ) is also situated at this location. Stop by and pick up a FREE Official Rally Guide."</item>
+        <item>"The main daytime spectator area is the Iron Bridge Spectator Area. Rally cars pass through this area three times throughout the day starting at 11:15 am. It has quickly become a fan and driver favourite. The challenging nature of the course allows the drivers to get into a good rhythm, and great sightlines allow spectators to see a lot of the action. In addition to the rally cars there is a lot happening at this spectator area. A public address system will keep you informed as to what's happening in the rally.  With music, food, rally merchandise and fast cars all within 100 meters of the parking area what more could you ask for?
+PLEASE NOTE THERE WILL BE A PARKING FEE OF $5.00 PER VEHICLE AT THIS SPECTATOR AREA. MONIES RAISED GO TO SUPPORT LOCAL CHARITIES."</item>
+        <item>"Check out the Golton "Super Special" spectator area beginning at 5:00 p.m. This short stage is just up the road from the Dungannon Recreation Centre where the Service Area and Rally Headquarters will be. Rally fans will be able to watch their favourite cars run this stage twice in quick succession. It's combination of tight, highly technical corners along with a faster, more open section is sure to please the drivers and spectators alike. For 2014 we have kept the jump that we created in 2010, close to the main spectating area.  Spectators will see more than one car on the course at a time. Come and be a part of non-stop action for well over an hour.
+PLEASE NOTE THERE WILL BE A PARKING FEE OF $5.00 PER VEHICLE AT THIS SPECTATOR AREA. MONIES RAISED GO TO SUPPORT LOCAL CHARITIES."</item>
+        <item>"The picturesque community of Bancroft, situated on the Canadian Shield, is strategically located 3 hours west of Ottawa, 1 hour north of Belleville, and 1 hour northeast of Peterborough. The area offers year round activities such as live theatre at the Village Playhouse, art exhibits at the Art Gallery, the Annual Rock Hound Gemboree and local rock hounding, cottaging, camping and fishing on our pristine lakes, snowmobiling on the best trails in Eastern Ontario, four wheeling on the Hastings Heritage Trail, great hiking and nature walk trails. After a day of bird watching from the “Hawks Watch” located atop the “Eagle’s Nest,” relax outdoors as you enjoy live entertainment at the Millennium Band Shell.
+Autumn is spectacular as the foliage turns gold and red. Enjoy a hike at Egan Chutes Provincial Park or take a day trip to Algonquin Provincial Park, to experience the array of fall colour. For hunting enthusiasts, the Bancroft area offers game from partridge to deer and moose. In 2000, elk were re-introduced to the area and viewing and marketing initiatives are being established.
+The York River flows through the centre of town and is being developed with park areas, playgrounds and trails. The shopping area consists of numerous boutiques offering unique gifts and crafts. Bancroft has so much to offer, yet maintains a quiet, relaxing pace.
+In June 2004, Bancroft was the first place winner in TV Ontario’s Studio 2, Most Talented Town contest. Bancroft generates its own arts scene and the arts community is a self-nurturing grassroots movement.
+Come and experience Bancroft, truly “A Place for All Seasons.”"</item>
+    </string-array>
+    <string-array name="locationImagesArray">
+        <item>tp_hq</item>
+        <item>tp_iron_bridge</item>
+        <item>tp_golton</item>
+        <item>bancroft</item>
+    </string-array>
+    <string-array name="scheduleArray">
+        <item>Parc Expose</item>
+        <item>Ceremonial Start</item>
+        <item>Service #1</item>
+        <item>Stage A4/Old Detlor</item>
+        <item>Stage A7/Iron Bridge North</item>
+        <item>Service #2</item>
+        <item>Stage B1/Iron Bridge South</item>
+        <item>Take a Break</item>
+        <item>Stage B5 &amp; B6 Golton 1 &amp; 2</item>
+        <item>Service #3</item>
+        <item>Finish of the Rally</item>
+        <item>Victory Podium</item>
+    </string-array>
+    <string-array name="scheduleDetailsArray">
+        <item>Check out all the competition vehicles, still shiny and ready for action!! Walk among the cars and talk to the crews before they start the rally.</item>
+        <item>All the competitors are introduced as they each depart from the Start Ramp at one minute intervals. A great photo opportunity!</item>
+        <item>The competitors return to the Rec. Centre for their first Service opportunity.</item>
+        <item>Don’t miss the first pass of the cars at this prominent spectator point. There wll be a $5.00 per vehicle parking fee at Ironbridge. Monies raised will go to support local charities.</item>
+        <item>Catch the second pass of the cars at this spot. </item>
+        <item>The competitors will have 25 minutes to work on their cars this time.</item>
+        <item>Catch the third pass of the cars. This time the run in the opposite direction to</item>
+        <item>Visit the charming town of Bancroft and enjoy the hospitality and shopping! You might want to get a warm meal before the evening stages.</item>
+        <item>This unique area is a twisty dirt course that winds its way through field and forest. Most of the stage is visible from the viewing area, including a jump. Arrive early, as the best spots go fast!  There wll be a $5.00 per vehicle parking fee at Golton. Monies raised will go to support local charities.</item>
+        <item>The competitors will have 30 minutes to work on their cars this time.</item>
+        <item>The cars start to arrive at the finish. Check out the amazing machines and crews that made it to the end!</item>
+        <item>About a half an hour after the Finish, the scoring team usually has enough information to decide on the top three competitors. Celebrate with the National and Regional winners… watch out for the champagne spray!</item>
+    </string-array>
+    <string-array name="scheduleWhenArray">
+        <item>8:00 am</item>
+        <item>9:00 am</item>
+        <item>10:45 am</item>
+        <item>11:15 am</item>
+        <item>12:30 pm</item>
+        <item>1:15 pm</item>
+        <item>2:00 pm</item>
+        <item>3:00 pm</item>
+        <item>5:00 pm</item>
+        <item>6:15 pm</item>
+        <item>9:45 pm</item>
+        <item>10:30 pm</item>
+    </string-array>
+    <integer-array name="scheduleLocationsArray">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>2</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

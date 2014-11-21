@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">-->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/icon"
+        android:textColor="#f0f000"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/teamName"
+        android:layout_height="wrap_content"
+        android:textColor="#f0f000"
+        android:textSize="20sp"
+        />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/icon"
+        android:textColor="#f0f000"
+        >
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:contentDescription="@string/team_photo"
+        android:scaleType="centerInside"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/icon"
+        android:textColor="#f0f000"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/driver"
+            android:textColor="#A9A9A9"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/codriver"
+            android:textColor="#A9A9A9"
+            android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/carnumber"
+        android:textColor="#ff03dcd9"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+   <!-- </RelativeLayout> -->
