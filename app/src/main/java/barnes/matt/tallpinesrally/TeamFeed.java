@@ -82,17 +82,18 @@ public class TeamFeed extends IntentService {
 
             for (Team team : TeamList) {
                 if (team != null) {
-                    if (db.getTeam(team.TeamId) == new Team()) {
+                    if (db.getTeam(team.TeamId) == null) {
                         db.insertTeam(team);
                     } else {
                         db.updateTeam(team);
+                    }
 
                         if (team.Photo.length() > 2) {
                             ImageManager im = new ImageManager(MainActivity.getInstance());
                             im.DownloadFromUrl(team.Photo, team.Photo);
                         }
 
-                    }
+
                     // if (liveUpdate) {
                     publishProgress(team);
                     //}
@@ -106,7 +107,7 @@ public class TeamFeed extends IntentService {
         protected void onPostExecute(Team... teams) {
 
             if (!liveUpdate) {
-               // TeamListFragment.getInstance().getAdapter().addAll(teams);
+                TeamListFragment.getInstance().getAdapter().addAll(teams);
             }
         }
 
@@ -143,9 +144,14 @@ public class TeamFeed extends IntentService {
                 else {
                  //   return null;
                 }
-
+            int newVersion = teamVersion;
+            for (Team team : t)
+            {
+                if (team.Version > newVersion)
+                    newVersion = team.Version;
+            }
             if (t.size() > 0)
-                MainActivity.getInstance().getSharedPreferences("TallPines", Context.MODE_PRIVATE).edit().putInt("teamversion", t.get(0).Version).commit();
+                MainActivity.getInstance().getSharedPreferences("TallPines", Context.MODE_PRIVATE).edit().putInt("teamversion", newVersion).commit();
 
             return t;
         }

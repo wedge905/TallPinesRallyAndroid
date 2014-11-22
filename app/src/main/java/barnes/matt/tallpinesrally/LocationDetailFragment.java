@@ -34,6 +34,12 @@ public class LocationDetailFragment extends Fragment {
     }
 
     @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.getInstance().currentfrag = "LOCATIONLIST";
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

@@ -27,12 +27,16 @@ public class TeamContent {
         return false;
     }
 
-   // public static Team getTeamById(int carNumber) {
-//        if (teamList.size() > 0)
-//            return teamList.get(carNumber - 1);
-//        else
-//            return null;
-//    }
+    public static Team getTeamById(int carNumber) {
+
+        for (Team t : teamList)
+        {
+            if (t.CarNumber == carNumber) {
+                return t;
+            }
+        }
+        return  null;
+    }
 
     //public static Team getTeamByCarNumber(int carNumber) {
 //        for (Team t : teamList)

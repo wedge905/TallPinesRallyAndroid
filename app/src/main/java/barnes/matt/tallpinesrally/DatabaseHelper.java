@@ -333,7 +333,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Team getTeam(String id)
     {
-        Team team = new Team();
+        Team team = null;
 
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cur=db.rawQuery("SELECT id, name, driver, codriver, car, class, comment, photo, startorder, carnumber FROM team WHERE id = '" + id +"'",new String [] {});

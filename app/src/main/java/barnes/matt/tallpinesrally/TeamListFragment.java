@@ -2,11 +2,6 @@ package barnes.matt.tallpinesrally;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ListFragment;
 import android.view.LayoutInflater;
@@ -17,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -54,27 +48,42 @@ public class TeamListFragment extends ListFragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public TeamListFragment() {
+        //1
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //3
+        //6
+        //8
         super.onCreate(savedInstanceState);
         mInflater = (LayoutInflater) getActivity().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         mAdapter = new TeamListAdapter(getActivity(), R.layout.teamitem, R.id.title, TeamContent.getTeamList());
         Instance = this;
 
-        setListAdapter(mAdapter);
-    }
+        if (savedInstanceState != null) {
+         //   currentCar = savedInstanceState.getInt("CarNumber", 0);
+           // if (currentCar > 0)
+             //   mListener.onTeamClick(currentCar);
+        }
 
+
+            setListAdapter(mAdapter);
+
+    }
 
     @Override
     public void onAttach(Activity activity) {
+        //5
         super.onAttach(activity);
         try {
             TeamFeed feed = new TeamFeed(MainActivity.getInstance());
             feed.getTeamUpdates(true);
 
             mListener = (OnTeamClickListener) activity;
+
+          //  if (currentCar > 0)
+            //    mListener.onTeamClick(currentCar);
         }
         catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
@@ -92,8 +101,7 @@ public class TeamListFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
 
         if (null != mListener) {
-            // Notify the active callbacks interface (the activity, if the
-            // fragment is attached to one) that an item has been selected.
+            // Notify the active callbacks interface (the activity, if the fragment is attached to one) that an item has been selected.
             mListener.onTeamClick(TeamContent.teamList.get(position).CarNumber);
         }
     }
@@ -117,10 +125,6 @@ public class TeamListFragment extends ListFragment {
             if (team.Photo.length() > 2) {
                 ImageManager im = new ImageManager(MainActivity.getInstance());
                 im.fetchDrawableOnThread(team.Photo, imageView);
-                //imageView.setImageDrawable(getResources().getIdentifier(Image, "drawable", getActivity().getPackageName()));
-                //ImageAsyncLoader imageLoader = new ImageAsyncLoader(imageView);
-                //DownloadedDrawable downloadedDrawable = new DownloadedDrawable(imageLoader);
-                //imageView.setImageDrawable(downloadedDrawable);
             }
             else {
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.tp_golton));

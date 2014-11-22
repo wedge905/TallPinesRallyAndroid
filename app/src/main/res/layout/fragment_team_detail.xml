@@ -5,75 +5,84 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:paddingLeft="5dp"
+    android:layout_marginLeft="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_toRightOf="@+id/icon"
     android:textColor="#f0f000"
     >
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:id="@+id/teamName"
         android:layout_height="wrap_content"
         android:textColor="#f0f000"
         android:textSize="20sp"
-        />
+        android:text="Team Alien Racing"/>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
-        android:paddingLeft="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@+id/icon"
+        android:layout_height="wrap_content"
         android:textColor="#f0f000"
-        >
+        android:weightSum="10">
+
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:orientation="vertical"
             android:contentDescription="@string/team_photo"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
+            android:layout_weight="7"
+            android:src="@drawable/tp_iron_bridge"
+            android:layout_margin="4dp"
+            android:layout_gravity="top"
             />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:paddingLeft="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/icon"
-            android:textColor="#f0f000"
-            >
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:id="@+id/driver"
-                android:textColor="#A9A9A9"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:id="@+id/codriver"
-                android:textColor="#A9A9A9"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:id="@+id/carnumber"
-                android:textColor="#ff03dcd9"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:layout_width="match_parent"
-                android:id="@+id/website"
-                android:textColor="#ff03dcd9"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
     </LinearLayout>
+    <!--LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#f0f000"
+        android:layout_weight="3"
+        -->
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/carnumber"
+            android:textColor="#ff03dcd9"
+            android:layout_height="wrap_content"
+            android:text="Car Number: 25"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/driver"
+            android:textColor="#A9A9A9"
+            android:layout_height="wrap_content"
+            android:text="Driver: Matt Barnes"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/codriver"
+            android:textColor="#A9A9A9"
+            android:layout_height="wrap_content"
+            android:text="CoDriver: Natasha Barnes"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/carClass"
+            android:textColor="#ff03dcd9"
+            android:layout_height="wrap_content"
+            android:text="Car Class: Open"/>
+
+    <!--/LinearLayout-->
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/teamBio"
-        android:textColor="#ff03dcd9"
-        android:text="this is sample text"
-        android:layout_height="wrap_content" />
+        android:textColor="#A9A9A9"
+        android:layout_height="wrap_content"
+        android:text="Long Biography"/>
 </LinearLayout>
     <!-- </RelativeLayout> -->

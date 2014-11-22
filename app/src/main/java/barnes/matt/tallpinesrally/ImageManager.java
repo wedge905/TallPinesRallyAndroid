@@ -97,8 +97,6 @@ public class ImageManager {
             Log.d("ImageManager", "Error: " + e);
             return "-1";
         }
-
-
     }
 
     public Drawable fetchDrawable(String fileName) {
@@ -122,7 +120,7 @@ public class ImageManager {
             // return
             // Drawable.createFromStream(getApplicationContext().openFileInput(params[0]),
             // params[0]);
-        } catch (Exception e) {
+        } catch (IOException e) {
             //Log.d("TeamPage", "Image file not found");
             return null;
         }

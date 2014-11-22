@@ -73,13 +73,29 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        if (savedInstanceState != null ) {
+            currentfrag = savedInstanceState.getString("currentFrag");
+
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.container, fragmentManager.findFragmentByTag(currentfrag), currentfrag).addToBackStack(null).commit();
+        }
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("currentFrag", currentfrag);
+    }
+
+    public String currentfrag = "";
 
     @Override
     public void onLocationClick(int id) {
         FragmentManager fragmentManager = getFragmentManager();
         LocationContent.LocationItem location = LocationContent.Locations.get(id);
-        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName)).addToBackStack(null).commit();
+        currentfrag = "LOCATIONDETAIL";
+        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName), currentfrag).addToBackStack(null).commit();
     }
 
     @Override
@@ -87,13 +103,15 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         FragmentManager fragmentManager = getFragmentManager();
         ScheduleContent.ScheduleItem scheduleItem = ScheduleContent.Schedule.get(id);
         LocationContent.LocationItem location = LocationContent.Locations.get(scheduleItem.locationId);
-        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName)).addToBackStack(null).commit();
+        currentfrag = "LOCATIONDETAIL";
+        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName), currentfrag).addToBackStack(null).commit();
     }
 
     @Override
     public void onTeamClick(int id) {
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.container, TeamDetailFragment.newInstance(TeamContent.teamList.get(id))).addToBackStack(null).commit();
+        currentfrag = "TEAMDETAIL";
+        fragmentManager.beginTransaction().replace(R.id.container, TeamDetailFragment.newInstance(TeamContent.getTeamById(id)), currentfrag).addToBackStack(null).commit();
     }
 
     @Override
@@ -101,24 +119,32 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
 
-        switch (position + 1) {
+        switch (position) {
+            case 0 :
+                currentfrag = "INFORMATION";
+                fragmentManager.beginTransaction().replace(R.id.container, InformationFragment.newInstance(), currentfrag).commit();
+                break;
             case 1 :
-                fragmentManager.beginTransaction().replace(R.id.container, InformationFragment.newInstance()).commit();
+                currentfrag = "SCHEDULELIST";
+                fragmentManager.beginTransaction().replace(R.id.container, ScheduleListFragment.newInstance(), currentfrag).commit();
                 break;
             case 2 :
-                fragmentManager.beginTransaction().replace(R.id.container, ScheduleListFragment.newInstance()).commit();
+                currentfrag = "LOCATIONLIST";
+                fragmentManager.beginTransaction().replace(R.id.container, LocationListFragment.newInstance(), currentfrag).commit();
                 break;
             case 3 :
-                fragmentManager.beginTransaction().replace(R.id.container, LocationListFragment.newInstance()).commit();
+                currentfrag = "NEWSLIST";
+                fragmentManager.beginTransaction().replace(R.id.container, NewsListFragment.newInstance(), currentfrag).commit();
                 break;
             case 4 :
-                fragmentManager.beginTransaction().replace(R.id.container, NewsListFragment.newInstance()).commit();
+                currentfrag = "TEAMLIST";
+                fragmentManager.beginTransaction().replace(R.id.container, TeamListFragment.newInstance(), currentfrag).commit();
                 break;
             case 5 :
-                fragmentManager.beginTransaction().replace(R.id.container, TeamListFragment.newInstance()).commit();
+                // Reserved for results
                 break;
             case 6 :
-                // Reserved for results
+                // Vehicle Tracking
                 break;
         }
     }
