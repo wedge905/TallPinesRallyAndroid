@@ -47,7 +47,8 @@ public class GcmIntentService extends IntentService {
                 boolean updateTeams = extras.getString("team").equals("true");
 
                 if (updateTeams) {
-                    new TeamFeed(MainActivity.getInstance()).getTeamUpdates(false);
+                    //new TeamFeed(MainActivity.getInstance()).getTeamUpdates(false);
+                    new TeamFeed(this).getTeamUpdates(false);
                     sendNotification("Entry List has been updated.", ENTRY_NOTIFICATION_ID);
                 }
 

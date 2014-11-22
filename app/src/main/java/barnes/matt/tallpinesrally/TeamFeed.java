@@ -47,8 +47,15 @@ public class TeamFeed extends IntentService {
 
     public void getTeamUpdates(Boolean liveUpdate)
     {
-        SharedPreferences settings = MainActivity.getInstance().getSharedPreferences("TallPines", Context.MODE_PRIVATE);
-        int teamVersion = settings.getInt("teamversion", 0);
+        int teamVersion = 0;
+
+        try
+        {
+            //SharedPreferences settings = MainActivity.getInstance().getSharedPreferences("TallPines", Context.MODE_PRIVATE);
+            SharedPreferences settings = context.getSharedPreferences("TallPines", Context.MODE_PRIVATE);
+            teamVersion = settings.getInt("teamversion", 0);
+        }
+        catch (Exception e) { }
 
         DownloadTeamsTask task = new DownloadTeamsTask(liveUpdate);
         task.execute(teamVersion);
@@ -89,7 +96,7 @@ public class TeamFeed extends IntentService {
                     }
 
                         if (team.Photo.length() > 2) {
-                            ImageManager im = new ImageManager(MainActivity.getInstance());
+                            ImageManager im = new ImageManager(context);
                             im.DownloadFromUrl(team.Photo, team.Photo);
                         }
 
@@ -107,13 +114,16 @@ public class TeamFeed extends IntentService {
         protected void onPostExecute(Team... teams) {
 
             if (!liveUpdate) {
-                TeamListFragment.getInstance().getAdapter().addAll(teams);
+                if (TeamListFragment.getInstance() != null)
+                    TeamListFragment.getInstance().getAdapter().addAll(teams);
             }
         }
 
         @Override
         protected void onProgressUpdate(Team... teams) {
-            TeamListFragment.getInstance().getAdapter().add(teams[0]);
+            if (TeamListFragment.getInstance() != null)
+                if (TeamListFragment.getInstance().getAdapter() != null)
+                    TeamListFragment.getInstance().getAdapter().add(teams[0]);
         }
 
         private List<Team> getUpdatedTeams(int teamVersion) {
@@ -151,7 +161,7 @@ public class TeamFeed extends IntentService {
                     newVersion = team.Version;
             }
             if (t.size() > 0)
-                MainActivity.getInstance().getSharedPreferences("TallPines", Context.MODE_PRIVATE).edit().putInt("teamversion", newVersion).commit();
+                context.getSharedPreferences("TallPines", Context.MODE_PRIVATE).edit().putInt("teamversion", newVersion).commit();
 
             return t;
         }
