@@ -37,23 +37,23 @@ public class TrackerUpdateTask extends AsyncTask<Boolean, Void, Void>
             // if (id.isEmpty() || id.equals("null"))
             //   return null;
             // }
-            CheckId();
+            if (CheckId()) {
+                post.setEntity(new StringEntity("{ \"RegId\":\"" + id + "\" }"));
+                post.setHeader("Accept", "application/json");
+                post.setHeader("Content-type", "application/json");
 
-            post.setEntity(new StringEntity("{ \"RegId\":\"" + id + "\" }"));
-            post.setHeader("Accept", "application/json");
-            post.setHeader("Content-type", "application/json");
+                DefaultHttpClient client = new DefaultHttpClient(new BasicHttpParams());
 
-            DefaultHttpClient client = new DefaultHttpClient(new BasicHttpParams());
-
-            client.execute(post);
+                client.execute(post);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             //  } catch (InterruptedException e) {
             //    e.printStackTrace();
             // }
         }
-            return null;
 
+        return null;
     }
 
     private boolean CheckId() {
@@ -74,7 +74,7 @@ public class TrackerUpdateTask extends AsyncTask<Boolean, Void, Void>
         else
         {
             try {
-                Thread.sleep(10000); // 10 seconds
+                Thread.sleep(5000); // 5 seconds
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
