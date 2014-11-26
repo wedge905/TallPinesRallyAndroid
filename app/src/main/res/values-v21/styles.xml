@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="TallPinesTheme" parent="android:Theme.Material">
+        <item name="android:navigationBarColor">@color/tallpinestheme_color</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
     </style>
+
 </resources>

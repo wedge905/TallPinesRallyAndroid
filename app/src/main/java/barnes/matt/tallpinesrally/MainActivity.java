@@ -4,12 +4,16 @@ import android.app.Activity;
 
 import android.app.ActionBar;
 import android.app.FragmentManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
@@ -27,7 +31,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks, ScheduleListFragment.OnScheduleItemClickListener, LocationListFragment.OnLocationClickListener, TeamListFragment.OnTeamClickListener{
+public class MainActivity extends FragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks, ScheduleListFragment.OnScheduleItemClickListener, LocationListFragment.OnLocationClickListener, TeamListFragment.OnTeamClickListener{
 
     private GoogleCloudMessaging gcm;
     private String regid;
@@ -37,10 +41,42 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private String SENDER_ID = "314127831723";
 
+    private UpdateReceiver updateReceiver;// = new TrackerFragment().new UpdateReceiver();
+
     private static MainActivity Instance;
     public static MainActivity getInstance() {
         return Instance;
     }
+
+
+    public void SetReciever(UpdateReceiver receiver, IntentFilter filter)
+    {
+        if (updateReceiver == null) {
+            updateReceiver = receiver;
+
+            registerReceiver(updateReceiver, filter);
+        }
+    }
+
+    public void unSetReciever()
+    {
+        try {
+            unregisterReceiver(updateReceiver);
+        }
+        catch (IllegalArgumentException e)
+        { }
+    }
+
+    @Override
+    protected void onStop() {
+        try {
+            unregisterReceiver(updateReceiver);
+        }
+        catch (IllegalArgumentException e)
+        { }
+        super.onStop();
+    }
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -95,7 +131,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         FragmentManager fragmentManager = getFragmentManager();
         LocationContent.LocationItem location = LocationContent.Locations.get(id);
         currentfrag = "LOCATIONDETAIL";
-        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName), currentfrag).addToBackStack(null).commit();
+        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName, location.Direction), currentfrag).addToBackStack(null).commit();
     }
 
     @Override
@@ -104,7 +140,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         ScheduleContent.ScheduleItem scheduleItem = ScheduleContent.Schedule.get(id);
         LocationContent.LocationItem location = LocationContent.Locations.get(scheduleItem.locationId);
         currentfrag = "LOCATIONDETAIL";
-        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName), currentfrag).addToBackStack(null).commit();
+        fragmentManager.beginTransaction().replace(R.id.container, LocationDetailFragment.newInstance(location.Name, location.LongDescription, location.ImageName, location.Direction), currentfrag).addToBackStack(null).commit();
     }
 
     @Override
@@ -141,10 +177,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 fragmentManager.beginTransaction().replace(R.id.container, TeamListFragment.newInstance(), currentfrag).commit();
                 break;
             case 5 :
-                // Reserved for results
+                currentfrag = "RESULTS";
+                fragmentManager.beginTransaction().replace(R.id.container, ResultListFragment.newInstance(), currentfrag).commit();
                 break;
             case 6 :
-                // Vehicle Tracking
+                currentfrag = "TRACKER";
+                fragmentManager.beginTransaction().replace(R.id.container, TrackerFragment.newInstance(), currentfrag).commit();
                 break;
         }
     }
@@ -168,6 +206,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 break;
             case 6:
                 mTitle = getString(R.string.section_results_title);
+                break;
+            case 7:
+                mTitle = getString(R.string.section_tracking_title);
                 break;
         }
     }
@@ -250,6 +291,11 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             return "";
         }
         return registrationId;
+    }
+
+    public String getGCMId()
+    {
+        return regid;
     }
 
     /**

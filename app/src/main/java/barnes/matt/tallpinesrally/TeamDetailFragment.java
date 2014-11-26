@@ -93,6 +93,8 @@ public class TeamDetailFragment extends Fragment {
         //teamName.setText("Alien Racing Team");
         TextView driverName = (TextView)view.findViewById(R.id.driver);
         TextView coDriverName = (TextView)view.findViewById(R.id.codriver);
+        TextView carName = (TextView)view.findViewById(R.id.car);
+
         int currentOrientation = getActivity().getResources().getConfiguration().orientation;
 
         if (currentOrientation == 2) {
@@ -100,16 +102,21 @@ public class TeamDetailFragment extends Fragment {
             //driverName.setText("Matt B");
 
             coDriverName.setText("CoDriver:\r\n" + thisTeam.Codriver);
+            carName.setText("Car:\r\n" + thisTeam.Car);
         }
         else {
             driverName.setText("Driver: " + thisTeam.Driver);
             //driverName.setText("Matt B");
 
             coDriverName.setText("CoDriver: " + thisTeam.Codriver);
+            carName.setText("Car: " + thisTeam.Car);
         }
         //coDriverName.setText("Nat B");
         //TextView website = (TextView)view.findViewById(R.id.website);
         //website.setText("http://www.directdynamics.ca");
+
+
+
         TextView carNumber = (TextView)view.findViewById(R.id.carnumber);
         carNumber.setText("Car # " + thisTeam.CarNumber);
 

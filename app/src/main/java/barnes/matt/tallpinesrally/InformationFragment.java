@@ -1,5 +1,6 @@
 package barnes.matt.tallpinesrally;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,10 +19,18 @@ public class InformationFragment extends Fragment {
 
     public static InformationFragment newInstance() {
         InformationFragment fragment = new InformationFragment();
+        Bundle args = new Bundle();
+        args.putInt("SECTIONNUMBER", 0);
+        fragment.setArguments(args);
         return fragment;
     }
     public InformationFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
     }
 
     @Override

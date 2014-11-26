@@ -39,6 +39,7 @@ public class TeamListFragment extends ListFragment {
     public static TeamListFragment newInstance() {
         TeamListFragment fragment = new TeamListFragment();
         Bundle args = new Bundle();
+        args.putInt("SECTIONNUMBER", 4);
         fragment.setArguments(args);
         return fragment;
     }
@@ -136,7 +137,8 @@ public class TeamListFragment extends ListFragment {
                 ((TextView)view.findViewById(R.id.teamName)).setText(team.Driver);
             ((TextView)view.findViewById(R.id.driver)).setText("Driver: " + team.Driver);
             ((TextView)view.findViewById(R.id.codriver)).setText("Co-Driver: " + team.Codriver);
-            ((TextView)view.findViewById(R.id.carnumber)).setText("Car #: " + Integer.toString(team.CarNumber));
+            //((TextView)view.findViewById(R.id.carnumber)).setText("Car #: " + Integer.toString(team.CarNumber));
+            ((TextView)view.findViewById(R.id.car)).setText("Car : " + team.Car);
 
             return view;
         }

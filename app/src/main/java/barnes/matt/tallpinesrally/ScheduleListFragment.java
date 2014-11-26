@@ -23,6 +23,9 @@ public class ScheduleListFragment extends ListFragment {
     // TODO: Rename and change types of parameters
     public static ScheduleListFragment newInstance() {
         ScheduleListFragment fragment = new ScheduleListFragment();
+        Bundle args = new Bundle();
+        args.putInt("SECTIONNUMBER", 1);
+        fragment.setArguments(args);
         return fragment;
     }
 

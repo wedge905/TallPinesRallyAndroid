@@ -53,6 +53,7 @@
             android:textColor="#ff03dcd9"
             android:layout_height="wrap_content"/>
 
+
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/driver"
@@ -64,7 +65,11 @@
             android:id="@+id/codriver"
             android:textColor="#A9A9A9"
             android:layout_height="wrap_content"/>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/car"
+        android:textColor="#A9A9A9"
+        android:layout_height="wrap_content"/>
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/carClass"

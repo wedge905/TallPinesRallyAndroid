@@ -34,8 +34,9 @@ public class NewsListFragment extends ListFragment {
 
     public static NewsListFragment newInstance() {
         NewsListFragment fragment = new NewsListFragment();
-        //Bundle args = new Bundle();
-        //fragment.setArguments(args);
+        Bundle args = new Bundle();
+        args.putInt("SECTIONNUMBER", 3);
+        fragment.setArguments(args);
         return fragment;
     }
 

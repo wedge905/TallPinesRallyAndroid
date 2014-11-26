@@ -11,18 +11,26 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="barnes.matt.tallpinesrally.gcm.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+ The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
+    <!--uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /-->
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/tp_icon"
-        android:label="@string/app_name"
+        android:label="@string/app_longname"
         android:theme="@style/TallPinesTheme" >
         <activity
             android:name="barnes.matt.tallpinesrally.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_longname" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,6 +39,12 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <receiver android:name="barnes.matt.tallpinesrally.UpdateReceiver" android:enabled="true" android:exported="false" >
+            <intent-filter>
+                <action android:name="barnes.matt.tallpinesrally.UPDATE_TRACKER" />
+            </intent-filter>
+        </receiver>
+
         <receiver
             android:name="barnes.matt.tallpinesrally.GcmBroadcastReceiver"
             android:enabled="true"
@@ -38,7 +52,6 @@
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
                 <category android:name="barnes.matt.tallpinesrally.gcm" />
             </intent-filter>
         </receiver>
@@ -50,6 +63,11 @@
             android:name="barnes.matt.tallpinesrally.TeamFeed"
             android:exported="false" >
         </service>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+
     </application>
 
 </manifest>

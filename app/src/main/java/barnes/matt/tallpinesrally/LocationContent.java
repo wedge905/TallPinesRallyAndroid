@@ -15,8 +15,10 @@ public class LocationContent {
         String[] locationDetail = res.getStringArray(R.array.locationDetailsArray);
         String[] locationDetailLong = res.getStringArray(R.array.locationDetailsLongArray);
         String[] locationImages = res.getStringArray(R.array.locationImagesArray);
+        String[] locationDirection = res.getStringArray(R.array.locationGeoArray);
+
         for (int i = 0; i < locationArray.length; i++) {
-            Locations.add(new LocationItem(i, locationArray[i], locationDetail[i], locationDetailLong[i], locationImages[i]));
+            Locations.add(new LocationItem(i, locationArray[i], locationDetail[i], locationDetailLong[i], locationImages[i], locationDirection[i]));
         }
     }
 
@@ -26,13 +28,15 @@ public class LocationContent {
         public String Description;
         public String LongDescription;
         public String ImageName;
+        public String Direction;
 
-        public  LocationItem(int id, String name, String description, String LongDesc, String image) {
+        public  LocationItem(int id, String name, String description, String LongDesc, String image, String dir) {
             this.Id = id;
             this.Name = name;
             this.Description = description;
             this.LongDescription = LongDesc;
             this.ImageName = image;
+            this.Direction = dir;
         }
     }
 }

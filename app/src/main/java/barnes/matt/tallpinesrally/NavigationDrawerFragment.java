@@ -4,7 +4,9 @@ package barnes.matt.tallpinesrally;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.support.v4.app.ActionBarDrawerToggle;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
@@ -20,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -92,7 +94,20 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.section_news_title),
                         getString(R.string.section_teams_title),
                         getString(R.string.section_results_title),
-                }));
+                        getString(R.string.section_tracking_title)
+                })
+                {
+                   @Override
+                   public View getView(int position, View convertView, ViewGroup parent) {
+                       TextView textView = (TextView) super.getView(position, convertView, parent);
+                       textView.setTextColor(Color.BLACK);
+                      // textView.setTextColor(Color.parseColor("f0f000"));
+
+                       return textView;
+                   }
+               }
+
+        );
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
         return mDrawerListView;
@@ -125,7 +140,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),                    /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
-                R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
+                R.drawable.tallpinestheme_ic_navigation_drawer,             /* nav drawer image to replace 'Up' caret */
                 R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
                 R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
         ) {
@@ -251,7 +266,7 @@ public class NavigationDrawerFragment extends Fragment {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setTitle(R.string.app_name);
+        actionBar.setTitle(R.string.app_longname);//.app_name);
     }
 
     private ActionBar getActionBar() {

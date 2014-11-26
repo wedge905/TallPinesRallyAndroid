@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Tall Pines Rally</string>
+    <string name="app_longname">Rally of the Tall Pines</string>
     <string name="section_info_title">Information</string>
     <string name="section_info_details">"Based in Bancroft Ontario, 2 hours from Toronto, the Rally of the Tall Pines is a favourite event with competitors and fans alike. Taking place in late November, the rally always dishes out challenging conditions for the drivers.\n
 Dirt, snow and ice routinely mix together on the roads to provide a supreme test of driving skill. As the final event of the Canadian Rally Championship, the Rally of the Tall Pines also features tight year-end battles which make for hard driving and great spectating.\n
@@ -11,11 +11,11 @@ Thanks to the efforts of Maple Leaf Rally Club\'s experienced and dedicated orga
     <string name="section_schedule_title">Schedule</string>
     <string name="section_locations_title">Locations</string>
     <string name="section_results_title">Results</string>
+    <string name="section_tracking_title">Live Tracking</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
     <string name="team_photo">Team Photo</string>
-
     <string-array name="locationsArray">
         <item>Rally Headquarters &amp; Service Area</item>
         <item>Iron Bridge Spectator Area</item>
@@ -39,6 +39,12 @@ Autumn is spectacular as the foliage turns gold and red. Enjoy a hike at Egan Ch
 The York River flows through the centre of town and is being developed with park areas, playgrounds and trails. The shopping area consists of numerous boutiques offering unique gifts and crafts. Bancroft has so much to offer, yet maintains a quiet, relaxing pace.
 In June 2004, Bancroft was the first place winner in TV Ontario’s Studio 2, Most Talented Town contest. Bancroft generates its own arts scene and the arts community is a self-nurturing grassroots movement.
 Come and experience Bancroft, truly “A Place for All Seasons.”"</item>
+    </string-array>
+    <string-array name="locationGeoArray">
+        <item>geo:0,0?q=45.014550,-77.786183 (Dungannon Rec Centre)</item>
+        <item>geo:0,0?q=45.054417,-77.788923 (Iron Bridge Spectator Area)</item>
+        <item>geo:0,0?q=45.039976,-77.82877 (Golton Super Special Spectator Area)</item>
+        <item>geo:0,0?q=45.056001,-77.853756 (Town of Bancroft)</item>
     </string-array>
     <string-array name="locationImagesArray">
         <item>tp_hq</item>
@@ -88,6 +94,7 @@ Come and experience Bancroft, truly “A Place for All Seasons.”"</item>
         <item>9:45 pm</item>
         <item>10:30 pm</item>
     </string-array>
+
     <integer-array name="scheduleLocationsArray">
         <item>0</item>
         <item>0</item>
@@ -103,6 +110,6 @@ Come and experience Bancroft, truly “A Place for All Seasons.”"</item>
         <item>0</item>
     </integer-array>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_vehicle_tracking">Map</string>
 
 </resources>
