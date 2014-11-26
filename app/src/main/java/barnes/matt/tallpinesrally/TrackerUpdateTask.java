@@ -15,6 +15,7 @@ import java.io.IOException;
  */
 public class TrackerUpdateTask extends AsyncTask<Boolean, Void, Void>
 {
+    String id;
     @Override
     protected Void doInBackground(Boolean... params) {
 
@@ -27,18 +28,62 @@ public class TrackerUpdateTask extends AsyncTask<Boolean, Void, Void>
 
         try {
             HttpPost post = new HttpPost(url);
-            post.setEntity(new StringEntity("{ \"RegId\":\"" + MainActivity.getInstance().getGCMId() + "\" }"));
+            //String id = MainActivity.getInstance().getGCMId();
+            //if (id.isEmpty() || id.equals("null"))
+            // {
+            // Thread.sleep(10000); // 10 seconds
+            //   // wait for a few seconds and check again
+            // id = MainActivity.getInstance().getGCMId();
+            // if (id.isEmpty() || id.equals("null"))
+            //   return null;
+            // }
+            CheckId();
+
+            post.setEntity(new StringEntity("{ \"RegId\":\"" + id + "\" }"));
             post.setHeader("Accept", "application/json");
             post.setHeader("Content-type", "application/json");
 
             DefaultHttpClient client = new DefaultHttpClient(new BasicHttpParams());
 
             client.execute(post);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+            //  } catch (InterruptedException e) {
+            //    e.printStackTrace();
+            // }
         }
+            return null;
 
-        return null;
+    }
+
+    private boolean CheckId() {
+        id = MainActivity.getInstance().getGCMId();
+
+        if (id.isEmpty() || id.equals("null"))
+        {
+            // wait for a few seconds and check again
+            return CheckId(1);
+        }
+        else
+            return true;
+    }
+
+    private boolean CheckId(int retry) {
+        if (retry > 3)
+            return false;
+        else
+        {
+            try {
+                Thread.sleep(10000); // 10 seconds
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            id = MainActivity.getInstance().getGCMId();
+            if (id.isEmpty() || id.equals("null"))
+                return CheckId(++retry);
+            else
+                return true;
+
+        }
     }
 }
